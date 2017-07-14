@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Learn Bash Scripting with our 8 part beginners tutorial including clear descriptions, ample examples and challenges.">
+    <meta name="keywords" content="scripting tutorial, bash tutorial, bash scripting tutorial, bash, scripting, linux, terminal">
+    <meta name="author" content="Ryan Chadwick">
+
+    <title>Bash Scripting Tutorial - Ryans Tutorials</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    
+    <link rel='icon' type='image/png' href='/favicons/favicon_bash.png'>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body role="document" data-spy='scroll' data-target='#sidebox' data-offset='90'> 
+	<header id='ryansheader'>
+	<div class='container'>
+		<div class='col-sm-12'>
+			<a id='ryantitle' href='/' title='A collection of Technology Tutorials'>Ryans Tutorials</a>
+			
+			<div class='btn-toolbar pull-right'>
+				<div class='btn-group mega-dropdown'>
+					<button class='btn btn-info btn-sm dropdown-toggle' data-toggle='dropdown' >More Tutorials <span class='caret'></span></button>
+					<ul class='dropdown-menu pull-right mega-dropdown-menu row'>
+						<li class='col-sm-3'>
+							<ul>
+								<li class='dropdown-header'>Linux</li>
+								<li><a href='/linuxtutorial/'><span><img src='/img/round/tux_48.png' alt='Tux' /><p>Linux Tutorial</p></span></a></li>
+								<li><a href='/bash-scripting-tutorial/'><span><img src='/img/round/hammer_48.png' alt='Hammer' /><p>Bash Scripting Tutorial</p></a></li>
+							</ul>
+						</li>
+						<li class='col-sm-3'>
+							<ul>
+								<li class='dropdown-header'>Web</li>
+								<li><a href='/html-tutorial/'><span><img src='/img/round/html_48.png' alt='HTML' /><p>HTML Tutorial</p></span></a></li>
+								<li><a href='/css-tutorial/'><span><img src='/img/round/css_48.png' alt='CSS' /><p>CSS Tutorial</p></span></a></li>
+							</ul>
+						</li>
+						<li class='col-sm-3'>
+							<ul>
+								<li class='dropdown-header'>General</li>
+								<li><a href='/binary-tutorial/'><span><img src='/img/round/abacus_48.png' alt='Abacus' /><p>Binary Tutorial</p></span></a></li>
+								<li><a href='/regular-expressions-tutorial/'><span><img src='/img/round/search_48.png' alt='Search' /><p>Regular Expressions Tutorial</p></span></a></li>
+								<li><a href='/boolean-algebra-tutorial/'><span><img src='/img/round/config_48.png' alt='Switches' /><p>Boolean Algebra Tutorial</p></span></a></li>
+								<li><a href='/rubiks-cube-tutorial/'><span><img src='/img/round/cube_48.png' alt='Rubiks Cube' /><p>Solve the Cube</p></span></a></li>
+							</ul>
+						</li>
+						<li class='col-sm-3'>
+							<ul>
+								<li class='dropdown-header'>&nbsp;</li>
+								<li><a href='/problem-solving-skills/'><span><img src='/img/round/map_48.png' alt='Map' /><p>Problem Solving Skills</p></span></a></li>
+								<li><a href='/graphic-design-tutorial/'><span><img src='/img/round/brush_48.png' alt='Brush' /><p>Basic Graphic Design</p></span></a></li>
+								<li><a href='/programming-challenges/'><span><img src='/img/round/rocket_48.png' alt='Rocket' /><p>Programming Challenges</p></span></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</header> 
+	
+	<!-- Fixed navbar -->
+	<div id='tutorialheader' class="navbar navbar-inverse navbar-static" role="navigation" data-spy='affix' data-offset-top='40'>
+		<div class="container">
+			<h1 class='introduction'>Bash Scripting Tutorial</h1>
+			
+			<div class='btn-toolbar pull-right'>
+								<div class='btn-group'>
+					<button class='btn btn-info btn-sm dropdown-toggle' data-toggle='dropdown' >Tutorial Sections <span class='caret'></span></button>
+					<ul class='dropdown-menu pull-right'>
+					<li class='active'><a href='./'>Introduction</a></li><li><a href='./bash-script.php'>1. What is a Bash Script?</a></li><li><a href='./bash-variables.php'>2. Variables</a></li><li><a href='./bash-input.php'>3. Input</a></li><li><a href='./bash-arithmetic.php'>4. Arithmetic</a></li><li><a href='./bash-if-statements.php'>5. If Statements</a></li><li><a href='./bash-loops.php'>6. Loops</a></li><li><a href='./bash-functions.php'>7. Functions</a></li><li><a href='./bash-user-interface.php'>8. User Interface</a></li>					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class='container'>
+		<div class='row'>
+			<div class='col-md-9'>
+				<div class='jumbotron'>
+					<h2>Welcome!</h2>
+					<p>Ok, so you want to learn how to write Bash scripts on Unix/Linux. Or, it's part of a subject you're doing and so you're learning because you have to. Either way, that's great.  Keep on reading my friend as you are about to harness a powerful tool that will allow you to perform complex repetitive tasks with minimal effort.  </p>
+				</div>
+				
+				<h2 id='introduction' class='introduction'>Introduction</h2>
+				
+				<p>The following pages are intended to give you a solid foundation in how to write Bash scripts, to get the computer to do complex, repetitive tasks for you.  You won't be a bash guru at the end but you will be well on your way and armed with the right knowledge and skills to get you there if that's what you want (which you should).</p>
+				
+				<p>Bash scripts are used by Systems Administrators, Programmers, Network Engineers, Scientists and just about anyone else who uses a Linux/ Unix system regularly.  No matter what you do or what your general level of computer proficiency is, you can generally find a way to use Bash scripting to make your life easier.</p>
+				
+				
+				<h2 id='outline'>Outline</h2>
+				
+				<p>This Bash scripting tutorial is divided into 8 sections. In general I recommend you work through them in order but if you've come here just to learn about a specific topic then who am I to slow you down, just head straight on over.</p>
+				
+				<p>You can now jump into section 1 and get started or keep reading below to learn a little more about this tutorial.</p>
+				
+				<ol>
+					<li><a href='bash-script.php'>What is a Bash Script</a> - What are they, how do they work and how to run them.</li>
+					<li><a href='bash-variables.php'>Variables</a> - Store data temporarily for later use.</li>
+					<li><a href='bash-input.php'>Input</a> - Different ways to supply data and directions to your Bash script.</li>
+					<li><a href='bash-arithmetic.php'>Arithmetic</a> - Perform various arithmetic operations in your Bash script.</li>
+					<li><a href='bash-if-statements.php'>If Statements</a> - How to make decisions within your Bash script.</li>
+					<li><a href='bash-loops.php'>Loops</a> - A variety of ways to perform repetitive tasks.</li>
+					<li><a href='bash-functions.php'>Functions</a> - Reuse code to make life easier.</li>
+					<li><a href='bash-user-interface.php'>User Interface</a> - Make your scripts user friendly.</li>
+					<!--<li>Cheat Sheet - A quick reference for the main points covered in this tutorial.</li>-->
+				</ol>
+				
+				<div class='tip'>
+					<p>Bash scripting relies on an understanding of the Linux Command Line.  If you are not confident on the Linux Command Line I suggest you start by going through our <a href='../linuxtutorial/'>Linux Tutorial</a>.</p>
+				</div>
+				
+				
+				<h2 id='structure'>Structure</h2>
+				
+				<p>The best way to learn Bash Scripting is as a series of small, easy to manage steps.  This tutorial is organised as such, with each section building upon the knowledge and skills learned in the previous sections.  If you work through them in order, read them fully (there is a fair bit of material but it is important for getting a proper understanding) and practice on the command line as you go I believe you should have a fairly pleasant and smooth journey to Bash scripting mastery.</p>
+		
+				<p>99 times out of 100 when a student has troubles with this stuff I find that it is not that they are incapable but that they were lazy and didn't read the material fully.</p> 
+				
+				<p>Each section is structured in the following format:</p>
+				
+				<ul>
+					<li>An introduction outlining what you will learn in that section.</li>
+					<li>Detailed material including extensive examples.</li>
+					<li>A summary of the most important concepts.</li>
+					<li>A set of activities to help you solidify your knowledge and skills.</li>
+				</ul>
+				
+				<p>Think of the activities not as tutorial questions (such as you may get in a class at school) but as direction on where to explore in the Linux environment to benefit from your new knowledge and skills.  Treat the activities as a starting point for exploration.  The further you take it, the better you will do. (How well you do and how far you go depends on how unlazy you are.)</p>
+				
+				<p>This site is also designed to work well on tablets.  I know a lot of students like to be at their computer doing work and have their tablet next to them with reference material on it.  If that is you then this site works quite well with that set up.  Another good approach is to have your browser on one half of the screen of your computer and a terminal on the other half so you can try out the examples as you go.</p>
+				
+				
+				<h2 id='houserules'>General House Rules</h2>
+				
+				<ul>
+					<li>I'll refer to Linux in the following pages,  whenever I do, assume I'm actually saying Unix/ Linux.  Linux is an offshoot of Unix and behaves pretty much exactly the same.</li>
+					<li>Whenever you see <b>&lt;something&gt;</b>, what this means is that you are to replace this with something useful.  Replace the whole thing (including the < and >).  If you see something such as <b>&lt;n&gt;</b> then it usually means replace this with a number.</li>
+					<li>Whenevery you see <b>[something]</b> this usually means that this something is optional.  When you run the command you may put in the something or leave it out.</li>
+				</ul>
+				
+				
+				<h2 id='creativity'>Problem Solving and Creative Thinking</h2>
+		
+				<p>If you wish to succeed with Bash scripting then there are two things you need, Problem solving and Creative thinking. Here are some basic pointers to help you along the way.</p>
+				
+				<ul>
+					<li><b>Explore and experiment</b>.  Remember, you're learning how to assemble a set of building blocks and with them you can build almost anything.  The examples you will find are intended to be an illustration of how they work, not the only thing you can do with them.  I encourage you to tweak the examples and see how they behave.  This will give you a much better understanding on how they work.  You will have a lot of questions along the way along the lines of "What if....?" and "Can I ...?"  to which I say, "Give it a go and see what happens."  The worst you can really get is an error message.  In which case you read the error message to understand why it didn't work, then have another go. Don't hold back!</li>
+					<li><b>Read carefully</b> and don't skip over the fine details.  I can't stress this enough.  The fine details are important and are often the difference between your script working and not working.  If something isn't working then re-read the material carefully and re look over what you have typed in to make sure you haven't <span title='Yes, this is a deliberate typo to demonstrate how easy it is :)'>make</span> a silly little typo.</li>
+				</ul>
+				
+				<p>To learn more about problem solving visit our <a href='../problem-solving-skills/'>Problem Solving Skills</a> tutorial.</p>
+				
+				
+				<h2 id='aboutauthor'>About the Author</h2>
+				
+				<p><img src='/img/ryan_web.jpg' alt='Ryan' class='img-circle pull-left' style='padding-right:10px;padding-bottom:10px;' />Hi. My name is Ryan Chadwick and I have been teaching Linux to students for over 10 years now.  It's something that I very much enjoy.  In a world where we are increasingly hiding the complexities away from users (smart phones and tablets in particular), it is always satisfying to give that power back to people and allow them to do much more with their technology.</p>
+		
+				<p>But teaching is only one of the things I do.  I also develop and manage websites, and manage computer systems for a few different organisations.  I feel that all my work is complementary and benefits from what I learn in the others.  Combined, they give me a fairly good understanding of how technology works, and also an understanding of how people use technology, perceive technology, learn technology and work around technology.</p>
+				
+				<p>This website is both for you, and for me.  For you, it is a digital form of what I have been teaching my students over the years.  For me, it is an opportunity to clarify and polish what I teach and how I deliver it.  To these ends, if you have any feedback at all, be it to tell me you found a particular section confusing, or to let me know it was helpful, I would be more than happy to hear from you.</p>
+				
+				<p>Drop us a message at <script type="text/javascript" language="javascript">
+				<!--
+				// Email obfuscator script 2.1 by Tim Williams, University of Arizona
+				// Random encryption key feature by Andrew Moulden, Site Engineering Ltd
+				// This code is freeware provided these four comment lines remain intact
+				// A wizard to generate this code is at http://www.jottings.com/obfuscator/
+				{ coded = "qgyR8j83qFyH@83h3HFv8Wi.Ri8"
+				key = "Nhl3MOnE0xi24DsSBzYymj7bXq1JfHUAtRVGdFoTkvLQ5egWw6pKcPaIu9C8rZ"
+				shift=coded.length
+				link=""
+				for (i=0; i<coded.length; i++) {
+				if (key.indexOf(coded.charAt(i))==-1) {
+				ltr = coded.charAt(i)
+				link += (ltr)
+				}
+				else {     
+				ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+				link += (key.charAt(ltr))
+				}
+				}
+				document.write("<a href='mailto:"+link+"'>"+link+"</a>")
+				}
+				//-->
+				</script><noscript>Sorry, you need Javascript on to email me.</noscript>
+				</p>
+				
+				
+				<h2 id='usage'>Using this material</h2>
+		
+				<p>If you are a teacher, academic, manager or trainer and wish to use this material in your classes or training you are more than welcome to link to these pages and refer your students here or show them in your classes, but please do not just copy my material.</p>
+				
+				<p>I've put a fair amount of time and effort into creating this resource so please be cool and do the right thing.</p>
+				
+				
+				<h2 id='disclaimer'>Disclaimer</h2>
+				
+				<p>Unfortunately, in this crazy and litigous world we now live in, one has to keep themselves covered so here is my disclaimer.</p>
+				
+				<p>To the best of my knowledge, the material contained within these pages is correct.  I make no guarantees however.  I also take no responsibility for any damage you may do based upon knowledge gained from here (even though the chances of doing so are relatively small at best).  Please use common sense when using any of the knowledge and skills gained from using this material.</p>
+				
+				<div id='bottomnavigation'>
+					<div class='pull-left'><a href='/'><span class='glyphicon glyphicon-chevron-left'></span> Tutorials Home</a></div>
+					<div class='pull-right'><a href='./bash-script.php'>What is a Bash Script <span class='glyphicon glyphicon-chevron-right'></span></a></div>
+				</div>
+				
+			</div>
+			<div class='col-md-3' id='sideboxcol'>
+				<div class="well sidebar-nav hidden-xs hidden-sm"  id='sidebox' data-spy='affix' data-offset-top='40'>
+					<ul class="nav nav-list">
+						<li class="nav-header">Section Breakdown</li>
+						<li><a href="#introduction">Introduction</a></li>
+						<li><a href="#outline">Outline</a></li>
+						<li><a href="#structure">Structure</a></li>
+						<li><a href="#houserules">General House Rules</a></li>
+						<li><a href="#creativity">Problem Solving and Creativity</a></li>
+						<li><a href="#aboutauthor">About the Author</a></li>
+						<li><a href="#usage">Using this Material</a></li>
+						<li><a href="#disclaimer">Disclaimer</a></li>
+						<li class="nav-header">Next Section</li>
+						<li><a href="./bash-script.php">What is a Bash Script?</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class='container-fluid footer-background margin-top'>
+	<div class='row-fluid'>
+		<div class='col-md-12'>
+			<div class='container'>
+				<footer>
+					<p>By <a href="https://plus.google.com/105636787773904848687" rel='author'>Ryan Chadwick</a> &copy; 2017 <span style='margin-left:30px;'><a href="https://twitter.com/funcreativity" class="twitter-follow-button" data-show-count="false" >Follow @funcreativity</a></span><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+				</footer>
+					
+				<div id='footerbar'></div> 
+
+				<div class='row'>
+					<div class="col-sm-3 tutorial-outline">
+						<a href='/' title='Kindle the flame'>
+							<img src='/img/round/fire_64.png' alt='Flame' />
+							<h4>Home</h4>
+						</a>
+					</div>
+					<div class="col-sm-3 tutorial-outline">
+						<a href='/linuxtutorial/'>
+							<img src='/img/round/tux_64.png' alt='Tux' />
+							<h4>Linux Tutorial</h4>
+						</a>
+					</div>
+					<div class="col-sm-3 tutorial-outline">
+						<a href='/html-tutorial/'>
+							<img src='/img/round/html_64.png' alt='HTML' />
+							<h4>HTML Tutorial</h4>
+						</a>
+					</div>
+					<div class="col-sm-3 tutorial-outline">
+						<a href='/binary-tutorial/'>
+							<img src='/img/round/abacus_64.png' alt='Abacus' />
+							<h4>Binary Tutorial</h4>
+						</a>
+					</div>
+				</div>
+				<div class='row'>
+					<div class="col-sm-3">
+						<p>Education is the kindling of a flame, <br />not the filling of a vessel.<br />
+						<i>- Socrates</i></p>
+						
+						<p><a href='/contact.php'>Contact</a> | <a href='/disclaimer.php' title='Privacy Policy, Terms of Use and Disclaimer'>Disclaimer</a></p>
+					</div>
+					<div class="col-sm-3 tutorial-outline">
+						<a href='/bash-scripting-tutorial/'>
+							<img src='/img/round/hammer_64.png' alt='Hammer' />
+							<h4>Bash Scripting Tutorial</h4>
+						</a>
+					</div>
+					<div class="col-sm-3 tutorial-outline">
+						<a href='/css-tutorial/'>
+							<img src='/img/round/css_64.png' alt='CSS' />
+							<h4>CSS Tutorial</h4>
+						</a>
+					</div>
+					<div class="col-sm-3 tutorial-outline">
+						<a href='/regular-expressions-tutorial/'>
+							<img src='/img/round/search_64.png' alt='Search' />
+							<h4>Regular Expressions</h4>
+						</a>
+					</div>
+				</div>
+				<div class='row'>
+					<div class="col-sm-offset-3 col-sm-3 tutorial-outline">
+						<a href='/programming-challenges/'>
+							<img src='/img/round/rocket_64.png' alt='Rocket' />
+							<h4>Programming Challenges</h4>
+						</a>
+					</div>
+					<div class="col-sm-3 tutorial-outline">
+						<a href='/problem-solving-skills/'>
+							<img src='/img/round/map_64.png' alt='Map' />
+							<h4>Problem Solving</h4>
+						</a>
+					</div>
+					<div class="col-sm-3 tutorial-outline">
+						<a href='/boolean-algebra-tutorial/'>
+							<img src='/img/round/config_64.png' alt='Switches' />
+							<h4>Boolean Algebra Tutorial</h4>
+						</a>
+					</div>
+				</div>
+				<div class='row'>
+					<div class="col-sm-offset-3 col-sm-3 tutorial-outline">
+						<a href='/graphic-design-tutorial/'>
+							<img src='/img/round/brush_64.png' alt='Paint Brush' />
+							<h4>Basic Design Tutorial</h4>
+						</a>
+					</div>
+					<div class="col-sm-3 tutorial-outline">
+						<a href='/rubiks-cube-tutorial/'>
+							<img src='/img/round/cube_64.png' alt='Rubiks Cube' />
+							<h4>Solve the Cube</h4>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> 
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-20188827-12', 'ryanstutorials.net');
+	ga('send', 'pageview');
+
+</script>
+
+	<!--<div id='rhythm'></div>-->
+	
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src='../js/base.js'></script>
+</body>
+
+</html> 
+
